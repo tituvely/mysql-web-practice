@@ -66,4 +66,9 @@ router.get("/business/:id", async function (req, res, next) {
   });
 });
 
+router.put('/menus/:id', async function(req, res, next) {
+  const result = await sql.updateMenuLikes(req.params.id, req.body.like)
+  res.send(result)
+});
+
 module.exports = router;

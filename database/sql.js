@@ -64,6 +64,13 @@ const sql = {
     `)
     return rows
   },
+  updateMenuLikes : async (id, like) => {
+    return await promisePool.query(`
+      UPDATE menus
+      SET likes = likes + ${like}
+      WHERE menu_id = ${id}
+    `)
+  },
 };
 
 module.exports = sql;
